@@ -1,6 +1,6 @@
 import Layout from "../../components/layout";
 
-export default function nosotros() {
+export default function Nosotros() {
   return (
     <div>
         <Layout
