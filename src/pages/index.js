@@ -10,20 +10,23 @@ export default function Home() {
         title="Inicio"
         description="Desarrollo de Software y consultoría Especializada"
       >
-      
-          <section className="text-gray-700 body-font">
-            <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-              <Image className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" width={800} height={950} src="/img/hero.jpg" />
-              <div className="text-center lg:w-2/3 w-full">
-                <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Bienvenido a I mas D</h1>
-                <Typewriter text='Bienvenido a I mas D'/>
-                <p className="mb-8 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur mauris felis, ut tincidunt magna suscipit sed. In hac habitasse platea dictumst.</p>
-                <div className="flex justify-center">
-                  <Link href="/login" className="inline-flex items-center bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Log in</Link>
-                </div>
-              </div>
-            </div>
-          </section>      
+    
+      <div className="relative h-screen">
+      <Image
+        src="/img/hero.jpg"
+        alt="Hero Image"
+        fill='true'
+        
+      />
+      <div className="absolute inset-0 flex items-center justify-center flex-col">
+        <h1 className="text-4xl md:text-6xl font-bold text-white text-center">¡Bienvenidos a I mas D!</h1>
+        <p className="text-lg md:text-xl mt-4 text-white" ><Typewriter text='Bienvenidos a mi sitio web'/></p>
+      </div>
+    </div>
+
+    <h1>Sisisis</h1>
+
+
       </Layout>
     </div>
   )
