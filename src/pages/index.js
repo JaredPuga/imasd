@@ -1,33 +1,33 @@
-import Image from "next/image";
+
 import Link from "next/link";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Layout from "../../components/layout";
 import Typewriter from "../../components/typewriter";
 
 export default function Home() {
+
   return (
     <div>
       <Layout
         title="Inicio"
         description="Desarrollo de Software y consultoría Especializada"
       >
-    
-      <div className="relative h-screen">
-      <Image
-        src="/img/hero.jpg"
-        alt="Hero Image"
-        fill='true'
+        <div
+          className="bg-cover bg-center h-screen flex flex-col justify-center items-center sm:h-screen"
+          style={{ backgroundImage: "url('/img/2.jpg')" }}
+        >
+          <h1 className="text-4xl md:text-6xl text-indigo-400 font-bold text-center mb-4">
+            ¡Bienvenido a <span className="text-orange-400">I + D!</span>
+          </h1>
+          <Typewriter text="Desarrollo de Software y consultoría Especializada"></Typewriter>
+          <Link href="/contacto">
+            <button className="bg-gray-800 text-white rounded-full py-3 px-8 font-bold text-lg hover:bg-orange-400 before:opacity-5">
+              Contáctanos
+            </button>
+          </Link>
+        </div>
         
-      />
-      <div className="absolute inset-0 flex items-center justify-center flex-col">
-        <h1 className="text-4xl md:text-6xl font-bold text-white text-center">¡Bienvenidos a I mas D!</h1>
-        <p className="text-lg md:text-xl mt-4 text-white" ><Typewriter text='Bienvenidos a mi sitio web'/></p>
-      </div>
+        </Layout>
     </div>
-
-    <h1>Sisisis</h1>
-
-
-      </Layout>
-    </div>
-  )
+  );
 }

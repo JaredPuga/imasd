@@ -19,7 +19,7 @@ export default function Typewriter({ text }) {
 
 
   return (
-    <h1 className="text-3xl md:text-5xl font-medium overflow-hidden">
+    <h1 className="text-lg md:text-2xl text-indigo-400 font-medium text-center mb-8" >
     {displayText}
     {showCursor && <span className="ml-2 animate-blink">|</span>}
     </h1>

@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function footer() {
   return (
-    <footer className="bg-gray-800 text-gray-300">
+    <footer className="bg-gray-900 text-gray-300 ">
       <div className="container mx-auto px-6 py-4 flex flex-wrap lg:justify-between items-center justify-center">
         <div className="flex justify-center flex-wrap mt-4 sm:mt-0">
         <p className="text-sm text-gray-400 hover:text-gray-300">© {new Date().getFullYear()} I mas D. Todos los derechos reservados.</p>
