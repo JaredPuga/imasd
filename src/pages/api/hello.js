@@ -1,5 +1,14 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import axios from 'axios';
 
-export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+export async function fetchData() {
+  try {
+    const response = await axios.get('http://localhost:4000/api/db/services');
+    const data = response.data;
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
+
+

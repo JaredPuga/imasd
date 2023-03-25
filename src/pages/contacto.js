@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -5,13 +6,26 @@ import Layout from '../../components/layout'
 
 export default function Contacto() {
 
-  const onHandleSubmit = e => {
-    e.preventDefault()
-  }
-
   const [nombre, setNombre] = useState('')
   const [correo, setCorreo] = useState('')
   const [mensaje, setMensaje] = useState('')
+
+  const onHandleSubmit = async(e) => {
+    e.preventDefault()
+
+    try {
+      const res = await axios.post('/api/send-email', {
+        nombre,
+        correo,
+        mensaje,
+      })
+
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+
 
   const reset = () => {
     setNombre('')

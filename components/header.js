@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
 
 export default function Header() {
 
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const { loggeado, name } = useLogin()
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -38,7 +41,7 @@ export default function Header() {
           ? "absolute z-50 top-0 left-0 w-full bg-gray-800 h-screen text-center "
           : "hidden"
       } lg:hidden`}>
-        <div className="px-4 pt-6 pb-8">
+        <div className="px-4 pt-6 pb-8 flex content-center flex-col">
           <button 
             className="text-white absolute top-0 right-0 p-4"
             onClick={toggleMenu}
@@ -53,15 +56,18 @@ export default function Header() {
           <Link href='/nosotros' className="block text-lg font-bold text-white mt-4 hover:text-orange-400">Nosotros</Link>
           <Link href='/servicios' className="block text-lg font-bold text-white mt-4 hover:text-orange-400">Servicios</Link>
           <Link href='/contacto' className="block text-lg font-bold text-white mt-4 hover:text-orange-400">Contacto</Link>
-        </div>
-      </div>
-      
-      <div className="hidden lg:block lg:flex lg:items-center lg:w-auto">
-        <div className="text-sm lg:flex-grow">
+          {loggeado ? <Link href="/perfil" className="block text-lg font-bold text-white mt-4 ">Bienvenido <span className="text-orange-400">{name}</span></Link> : <Link href='/login/logIn'><button className="text-base block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:bg-orange-400 mr-4 border-2 p-3 rounded">Iniciar Sesión</button></Link>}
+          
+          </div>
+          </div>
+          
+          <div className="hidden lg:block lg:flex lg:items-center lg:w-auto">
+          <div className="text-sm lg:flex-grow">
           <Link href='/' className="text-base block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-orange-400 mr-4">Inicio</Link>
           <Link href='/nosotros' className="text-base block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-orange-400 mr-4">Nosotros</Link>
           <Link href='/servicios' className="text-base block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-orange-400 mr-4">Servicios</Link>
           <Link href='/contacto' className="text-base block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-orange-400 mr-4">Contacto</Link>
+          {loggeado ? <Link href="/perfil/perfilAdmin" className="block mt-4 lg:inline-block lg:mt-0 text-gray-200 mr-4 text-2xl">Bienvenido, <span className="text-orange-400">{name}</span></Link> : <Link href='/login/logIn'><button className="text-base block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:bg-orange-400 mr-4 border-2 p-3 rounded">Iniciar Sesión</button></Link>}
         </div>
       </div>
     </nav>
